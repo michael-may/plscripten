@@ -1,5 +1,9 @@
 # plscripten — (slop-coded) Polski TypeScript
 
+> **EN:** For too long, the English language has been used as a tool of control and oppression over our Polish developer friends. This repository is a small gesture of goodwill and an attempt to right an injustice. 🇵🇱
+>
+> **PL:** Po polsku to można co najwyżej piwo w żabce zamówić. Nie będzie nam nikt mówił w jakim języku mamy type scriptować. Możecie zignorować to całe repozytorium bo to ściema i żart. 🇵🇱
+
 > **EN:** A Node-compatible runtime and preprocessor that lets you write programs
 > **entirely in Polish** — every JavaScript and TypeScript keyword, primitive
 > type, utility type, global object and common built-in method has a Polish
