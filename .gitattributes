@@ -1,0 +1,8 @@
+# EN: Tell GitHub Linguist to highlight .pls files (Polski TypeScript) as
+# TypeScript in blob and diff views. Polish keywords render as identifiers, but
+# strings, comments, numbers and structure are coloured correctly.
+# PL: Mówi GitHub Linguist, aby podświetlał pliki .pls (Polski TypeScript) jak
+# TypeScript w widokach plików i różnic. Polskie słowa kluczowe renderują się
+# jak identyfikatory, ale napisy, komentarze, liczby i struktura są kolorowane.
+*.pls linguist-language=TypeScript
+*.pls linguist-detectable=true

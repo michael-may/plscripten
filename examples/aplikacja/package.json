@@ -1,0 +1,14 @@
+{
+	"name": "przykladowa-aplikacja",
+	"version": "1.0.0",
+	"private": true,
+	"description": "EN: example app consuming plscripten / PL: przykładowa aplikacja używająca plscripten",
+	"scripts": {
+		"start": "plscripten run src/główny.pls",
+		"start:dev": "node ../../bin/plscripten.js run src/główny.pls",
+		"build": "node tools/spakuj.ts"
+	},
+	"dependencies": {
+		"plscripten": "file:../.."
+	}
+}

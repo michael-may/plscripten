@@ -1,0 +1,11 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"noEmit": true,
+		"rootDir": ".",
+		"module": "commonjs",
+		"moduleDetection": "force",
+		"types": ["node"]
+	},
+	"include": ["tools", "examples/aplikacja/tools"]
+}

@@ -1,0 +1,44 @@
+{
+	"name": "vscode-plscripten",
+	"displayName": "plscripten (Polski TypeScript)",
+	"description": "Syntax highlighting for plscripten .pls files — TypeScript written in Polish.",
+	"version": "1.0.0",
+	"publisher": "michael-may",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"polish",
+		"polski",
+		"typescript",
+		"pls",
+		"plscripten"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "plscripten",
+				"aliases": [
+					"plscripten",
+					"Polski TypeScript",
+					"pls"
+				],
+				"extensions": [
+					".pls"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "plscripten",
+				"scopeName": "source.pls",
+				"path": "./syntaxes/plscripten.tmLanguage.json"
+			}
+		]
+	}
+}

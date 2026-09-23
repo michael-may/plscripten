@@ -1,0 +1,54 @@
+{
+	"name": "plscripten",
+	"version": "1.0.0",
+	"description": "Polski TypeScript — a Node-compatible runtime and preprocessor that lets you program entirely in Polish. Write .pls, run with Node.",
+	"author": "Michael May",
+	"license": "MIT",
+	"keywords": [
+		"polish",
+		"polski",
+		"typescript",
+		"runtime",
+		"preprocessor",
+		"pls",
+		"language"
+	],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"bin": {
+		"plscripten": "bin/plscripten.js",
+		"pls": "bin/plscripten.js"
+	},
+	"files": [
+		"bin",
+		"dist",
+		"examples"
+	],
+	"scripts": {
+		"build": "node ./tools/clear-dist.ts && tsc -p tsconfig.json",
+		"prepare": "npm run build",
+		"plscripten": "node ./bin/plscripten.js",
+		"pls": "node ./bin/plscripten.js",
+		"start": "node ./bin/plscripten.js",
+		"example": "node ./bin/plscripten.js run examples/główny.pls",
+		"example:hello": "node ./bin/plscripten.js run examples/witaj-świecie.pls",
+		"build:binary": "npm run build && node ./tools/build-binary.ts",
+		"prettier": "prettier --write \"src/**/*.ts\"",
+		"test": "node ./tools/test.ts",
+		"typecheck:tools": "tsc -p tsconfig.tools.json",
+		"gen:grammar": "node ./tools/gen-grammar.ts",
+		"install:extension": "node ./tools/install-extension.ts"
+	},
+	"dependencies": {
+		"typescript": "^5.9.2"
+	},
+	"devDependencies": {
+		"@types/node": "^24.3.0",
+		"esbuild": "^0.24.0",
+		"postject": "^1.0.0-alpha.6",
+		"prettier": "^3.6.2"
+	},
+	"engines": {
+		"node": ">=20"
+	}
+}

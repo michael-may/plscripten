@@ -1,0 +1,159 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "plscripten (Polski TypeScript)",
+	"scopeName": "source.pls",
+	"fileTypes": [
+		"pls"
+	],
+	"patterns": [
+		{
+			"name": "comment.line.double-slash.pls",
+			"begin": "//",
+			"end": "$"
+		},
+		{
+			"name": "comment.block.pls",
+			"begin": "/\\*",
+			"end": "\\*/"
+		},
+		{
+			"name": "string.quoted.double.pls",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pls",
+					"match": "\\\\."
+				}
+			]
+		},
+		{
+			"name": "string.quoted.single.pls",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pls",
+					"match": "\\\\."
+				}
+			]
+		},
+		{
+			"name": "string.template.pls",
+			"begin": "`",
+			"end": "`",
+			"patterns": [
+				{
+					"name": "constant.character.escape.pls",
+					"match": "\\\\."
+				},
+				{
+					"name": "meta.template.expression.pls",
+					"begin": "\\$\\{",
+					"end": "\\}",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.template-expression.begin.pls"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.template-expression.end.pls"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		{
+			"match": "(?<![\\p{L}\\p{N}_$])(funkcja)(?![\\p{L}\\p{N}_$])\\s+([\\p{L}_$][\\p{L}\\p{N}_$]*)",
+			"captures": {
+				"1": {
+					"name": "storage.type.pls"
+				},
+				"2": {
+					"name": "entity.name.function.pls"
+				}
+			}
+		},
+		{
+			"match": "(?<![\\p{L}\\p{N}_$])(klasa|interfejs|wyliczenie|typ|przestrzeń)(?![\\p{L}\\p{N}_$])\\s+([\\p{L}_$][\\p{L}\\p{N}_$]*)",
+			"captures": {
+				"1": {
+					"name": "storage.type.pls"
+				},
+				"2": {
+					"name": "entity.name.type.pls"
+				}
+			}
+		},
+		{
+			"name": "storage.type.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:przestrzeń|wyliczenie|zadeklaruj|interfejs|funkcja|zmienna|klasa|moduł|niech|stała|typ)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "keyword.control.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:odpluskwiacz|kontynuuj|przypadek|domyślne|przełącz|przerwij|wreszcie|inaczej|spróbuj|czekaj|dopóki|jeżeli|wydaj|zwróć|rzuć|złap|dla|rób)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "keyword.operator.expression.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:implementuje|wywnioskuj|instancją|rozszerza|unikalny|zapewnia|spełnia|spośród|kluczy|pustka|rodzaj|jako|jest|nowy|usuń|w)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "variable.language.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:globalneTo|__katalog|nadrzędny|konsola|__plik|proces|Bufor|to)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "keyword.other.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:konstruktor|globalny)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "storage.modifier.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:asynchroniczna|abstrakcyjna|tylkoodczyt|chroniona|eksportuj|nadpisuje|publiczna|statyczna|importuj|prywatna|akcesor|pobierz|ustaw)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "keyword.control.import.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:eksporty|wymagaj|ze|z)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "constant.language.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:Nieskończoność|nieokreślone|NieLiczba|prawda|fałsz|nic)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "support.type.primitive.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:wielkaliczba|logiczna|nieznane|dowolny|liczba|obiekt|napis|nigdy)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "support.type.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:ParametryKonstruktora|TablicaTylkoOdczytu|PomińParametrThis|TypParametruThis|TylkoDoOdczytu|WielkieLitery|TypInstancji|ZDużejLitery|ZMałejLitery|TypZwracany|MałeLitery|Oczekiwany|Wyodrębnij|Częściowy|Parametry|Niepusty|Wymagany|TypThis|Wybierz|Wyklucz|Rekord|Pomiń)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "support.class.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:WyrażenieRegularne|BłądReferencji|WielkaLiczba|BłądSkładni|BłądZakresu|Pełnomocnik|Matematyka|SłabyZbiór|Obietnica|Refleksja|SłabaMapa|BłądEval|BłądTypu|Logiczna|BłądURI|Funkcja|Tablica|Liczba|Obiekt|Napis|Zbiór|Błąd|Data|Mapa)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "support.function.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:parsujZmiennoprzecinkową|kolejkujMikrozadanie|odkodujKomponentURI|zakodujKomponentURI|wyczyśćLimitCzasu|klonStrukturalny|ustawNatychmiast|parsujCałkowitą|ustawLimitCzasu|wyczyśćInterwał|ustawInterwał|czyNieLiczba|czySkończona|odkodujURI|zakodujURI|sprowadź)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "support.function.member.pls",
+			"match": "(?<=\\.)(?:ostatniIndeksElementu|wartośćBezwzględna|wszystkieUstalone|zredukujOdPrawej|dopasujWszystko|przytnijZPrzodu|wypełnijZPrzodu|indeksElementu|zamieńWszystko|przesuńZLewej|przytnijZTyłu|spłaszczMapuj|wypełnijZTyłu|znajdźOstatni|dodajElement|doTekstuJSON|znajdźIndeks|dodajZLewej|pierwiastek|pobierzCzas|punktKoduNa|dlaKażdego|doPrecyzji|doWartości|informacja|kodZnakuNa|zaczynaSię|zaokrąglij|kończySię|naWielkie|wiadomość|wstawUsuń|wszystkie|doStałej|dziennik|maksimum|niektóre|podnapis|przypisz|przytnij|spłaszcz|wartości|wepchnij|wypełnij|zastosuj|zredukuj|debuguj|długość|dopasuj|filtruj|minimum|naNapis|ostrzeż|podłoga|podziel|powtórz|rozmiar|rozwiąż|sparsuj|wycinek|wyczyść|wywołaj|zawiera|zdejmij|klucze|losowa|naMałe|odrzuć|odwróć|połącz|potęga|powiąż|sortuj|tabela|utwórz|wyścig|zamień|zamroź|znajdź|znakNa|każdy|mapuj|naISO|nazwa|sufit|teraz|wpisy|wtedy|złącz|ślad|stos|ma|na)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"name": "constant.numeric.pls",
+			"match": "(?<![\\p{L}\\p{N}_$])(?:0[xX][0-9a-fA-F_]+|0[bB][01_]+|0[oO][0-7_]+|(?:\\d[\\d_]*)?\\.?\\d[\\d_]*(?:[eE][+-]?\\d+)?n?)(?![\\p{L}\\p{N}_$])"
+		},
+		{
+			"match": "([\\p{L}_$][\\p{L}\\p{N}_$]*)\\s*(?=\\()",
+			"captures": {
+				"1": {
+					"name": "entity.name.function.call.pls"
+				}
+			}
+		}
+	]
+}
